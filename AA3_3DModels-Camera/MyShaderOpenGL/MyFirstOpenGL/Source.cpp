@@ -34,7 +34,7 @@ void main()
 	bool _isPaused = false;
 	float lastFrame = 0.0f;
 
-	// Generamos el game loop, cambiar por una varaible de control de juego en vez de el Listen dle IM
+	// Generamos el game loop
 	while (!IM->Listen()) {
 
 		float currentFrame = (float)glfwGetTime();
