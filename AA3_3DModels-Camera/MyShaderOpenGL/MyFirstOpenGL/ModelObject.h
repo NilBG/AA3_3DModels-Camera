@@ -17,6 +17,6 @@ public:
 private:
 	Model* model = nullptr;
 	GLuint textureID = 0;
-	glm::vec4 tintColor = glm::vec4(1.0f); // Blanco por defecto
+	glm::vec4 tintColor = glm::vec4(1.0f); //Blanco by default
 	GLuint shaderProgram = 0;
 };
