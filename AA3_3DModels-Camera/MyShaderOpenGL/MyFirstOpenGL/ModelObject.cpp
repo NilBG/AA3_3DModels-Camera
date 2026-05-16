@@ -1,17 +1,14 @@
 #include "ModelObject.h"
-#include "RenderManager.h"
-#include <stb_image.h>
-#include <gtc/type_ptr.hpp>
-#include <iostream>
+
 
 ModelObject::ModelObject(const std::string& modelPath, const std::string& texturePath)
 {
-	// Cargamos el modelo a partir del archivo OBJ
+	// Cargamos modelo
 	Model modelParaCargarOBJ = LoadOBJModel(modelPath);
 	//Lo pongo asi porque es un puntero model
 	model = new Model(modelParaCargarOBJ); 
 
-	// Cargamos la textura con stb_image
+	// Cargamos la textura con stb image
 	int width, height, nrChannels;
 	unsigned char* data = stbi_load(texturePath.c_str(), &width, &height, &nrChannels, 0);
 	if (data)

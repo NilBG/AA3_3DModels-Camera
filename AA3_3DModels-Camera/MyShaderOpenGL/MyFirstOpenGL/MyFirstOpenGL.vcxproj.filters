@@ -81,9 +81,13 @@
     <None Include="PyramidFragmentShader.glsl">
       <Filter>Shader\Fragment Shader</Filter>
     </None>
-    <None Include="TextureFragmentShader.glsl" />
-    <None Include="TextureVertexShader.glsl" />
     <None Include="glew32.dll" />
+    <None Include="TextureFragmentShader.glsl">
+      <Filter>Shader\Fragment Shader</Filter>
+    </None>
+    <None Include="TextureVertexShader.glsl">
+      <Filter>Shader\Vertex Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Primitive.h">

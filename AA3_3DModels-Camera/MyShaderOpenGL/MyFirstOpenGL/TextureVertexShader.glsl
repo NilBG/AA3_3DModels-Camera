@@ -12,5 +12,5 @@ out vec2 TexCoord;
 void main()
 {
 	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(inPosition, 1.0);
-	TexCoord = inTexCoord;
+	TexCoord =  vec2(inTexCoord.x,1.0 - inTexCoord.y);
 }
