@@ -35,14 +35,14 @@ void Cube::Init() {
     };
 
     // Inicializamos el MeshRenderer
-    meshRenderer->Init(vertices, sizeof(vertices));
+    _meshRenderer->Init(vertices, sizeof(vertices));
 
     //Transform
-    transform->position = glm::vec3(-1.f, 0.0f, 0.0f);
-    transform->rotation = glm::vec3(0.0f);
-    transform->scale = glm::vec3(0.25f);
+    _transform->position = glm::vec3(-1.f, 0.0f, 0.0f);
+    _transform->rotation = glm::vec3(0.0f);
+    _transform->scale = glm::vec3(0.25f);
     forward = glm::vec3(0.0f, 1.0f, 0.0f);
-    speed = cubeSpeed;
+    _speed = cubeSpeed;
     bounds = glm::vec2(1.f, -1.f);
     angle = glm::vec3(50.0f, 50.0f, 0.0f);
 }
@@ -50,16 +50,16 @@ void Cube::Init() {
 void Cube::Update(float dt)
 {
     //Rotation
-    transform->rotation.y += angle.y * speed * dt;
-    if (transform->rotation.y > maxAngle) transform->rotation.y -= maxAngle;
+    _transform->rotation.y += angle.y * _speed * dt;
+    if (_transform->rotation.y > maxAngle) _transform->rotation.y -= maxAngle;
 
     //Movement
-    transform->position += forward * speed * dt;
-    if (transform->position.y >= bounds.x || transform->position.y <= bounds.y)
+    _transform->position += forward * _speed * dt;
+    if (_transform->position.y >= bounds.x || _transform->position.y <= bounds.y)
         forward *= -1.f;
 }
 
 void Cube::Render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) {
-    meshRenderer->Draw(shaderProgram, transform->GetTranslationMatrix(), transform->GetRotationMatrix(), transform->GetScaleMatrix(), viewMatrix, projectionMatrix, vertexCount);
+    _meshRenderer->Draw(shaderProgram, _transform->GetTranslationMatrix(), _transform->GetRotationMatrix(), _transform->GetScaleMatrix(), viewMatrix, projectionMatrix, vertexCount);
     glUniform1f(glGetUniformLocation(shaderProgram, "windowHeight"), (float)WINDOW_HEIGHT);
 }
