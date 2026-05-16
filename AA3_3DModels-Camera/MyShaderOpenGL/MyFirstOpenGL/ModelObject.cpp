@@ -57,12 +57,12 @@ void ModelObject::Update(float dt){}
 
 void ModelObject::Render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)
 {
-	if (!isVisible) return;
+	if (!_isVisible) return;
 
 	glUseProgram(shaderProgram);
 
 	// Transform 
-	glm::mat4 modelMat = transform->GetModelMatrix();
+	glm::mat4 modelMat = _transform->GetModelMatrix();
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMat));
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "viewMatrix"), 1, GL_FALSE, glm::value_ptr(viewMatrix));
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projectionMatrix"), 1, GL_FALSE, glm::value_ptr(projectionMatrix));

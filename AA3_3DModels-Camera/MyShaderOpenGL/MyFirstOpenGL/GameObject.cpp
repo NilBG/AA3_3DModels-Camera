@@ -2,13 +2,18 @@
 
 GameObject::GameObject()
 {
-	transform = new Transform();
-	meshRenderer = new MeshRenderer();
+	_transform = new Transform();
+	_meshRenderer = new MeshRenderer();
 }
 
 
 GameObject::~GameObject()
 {
-	delete transform;
-	delete meshRenderer;
+	delete _transform;
+	delete _meshRenderer;
+}
+
+void GameObject::SetTag(std::string tag)
+{
+	_tag = tag;
 }
