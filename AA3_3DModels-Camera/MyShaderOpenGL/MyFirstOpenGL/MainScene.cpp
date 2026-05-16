@@ -184,11 +184,11 @@ void MainScene::OnEnter()
     AddGameObject(nube11);
 
     //Suelo
-    //ModelObject* suelo = new ModelObject("../Assets/Modelos/cube.obj", "../Assets/Texturas/rock.png");
-    //suelo->GetTransform()->position = glm::vec3(0.0f, -1.5f, -3.0f);
-    //suelo->GetTransform()->scale = glm::vec3(20.0f, 0.1f, 20.0f);
-    //suelo->SetTintColor(glm::vec4(0.0f, 0.8f, 0.1f, 1.0f)); // Verde
-    //AddGameObject(suelo);
+    Cube* suelo = new Cube(
+        glm::vec3(0.0f, -1.5f, -3.0f),
+        glm::vec3(20.0f, 0.1f, 20.0f)
+    );
+    AddGameObject(suelo);
 
     //Cielo azul
     glClearColor(0.4f, 0.6f, 0.9f, 1.0f);
