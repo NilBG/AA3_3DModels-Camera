@@ -28,19 +28,19 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="RenderManager.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Stb.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glew32.dll" />
-    <None Include="MyFirstFragmentShader.glsl" />
-    <None Include="MyFirstGeometryShader.glsl" />
-    <None Include="MyFirstVertexShader.glsl" />
+    <None Include="PrimitiveFragmentShader.glsl" />
+    <None Include="PrimitiveGeometryShader.glsl" />
+    <None Include="PrimitiveVertexShader.glsl" />
     <None Include="packages.config" />
-    <None Include="PyramidFragmentShader.glsl" />
     <None Include="TextureFragmentShader.glsl" />
     <None Include="TextureVertexShader.glsl" />
   </ItemGroup>
@@ -53,7 +53,6 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Primitive.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TimeManager.h" />

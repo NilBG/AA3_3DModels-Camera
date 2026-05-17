@@ -3,20 +3,20 @@
 void MainScene::OnEnter()
 {
     //Camera
-    _camera = new Camera();
+    camera = new Camera();
 
     //Trolls
     ModelObject* troll1 = new ModelObject("../Assets/Modelos/troll.obj", "../Assets/Texturas/troll.png");
     troll1->GetTransform()->position = glm::vec3(0.0f, -0.8f, -1.0f);
     troll1->GetTransform()->scale = glm::vec3(0.3f);
-    troll1->GetTransform()->rotation = glm::vec3(90.0f, 0.0f, 0.0f); // Tumbado
+    troll1->GetTransform()->rotation = glm::vec3(90.0f, 0.0f, 0.0f);
     troll1->SetTag("troll1");
     AddGameObject(troll1);
 
     ModelObject* troll2 = new ModelObject("../Assets/Modelos/troll.obj", "../Assets/Texturas/troll.png");
     troll2->GetTransform()->position = glm::vec3(-1.0f, -0.8f, -0.5f);
     troll2->GetTransform()->scale = glm::vec3(0.3f);
-    troll2->GetTransform()->rotation = glm::vec3(0.0f, 90.0f, 0.0f); // Mira izquierda
+    troll2->GetTransform()->rotation = glm::vec3(0.0f, 90.0f, 0.0f);
     troll2->SetTintColor(glm::vec4(3.0f, 0.0f, 0.0f, 1.0f)); // Rojo
     troll2->SetTag("troll2");
     AddGameObject(troll2);
@@ -31,7 +31,7 @@ void MainScene::OnEnter()
     ModelObject* troll4 = new ModelObject("../Assets/Modelos/troll.obj", "../Assets/Texturas/troll.png");
     troll4->GetTransform()->position = glm::vec3(-0.5f, -0.8f, -2.5f);
     troll4->GetTransform()->scale = glm::vec3(0.3f);
-    troll4->GetTransform()->rotation = glm::vec3(0.0f, 180.0f, 0.0f);
+    troll4->GetTransform()->rotation = glm::vec3(0.0f,0.0f, 0.0f);
     troll4->SetTintColor(glm::vec4(1.5f, 0.8f, 0.2f, 1.0f)); // Marrón
     troll4->SetTag("troll4");
     AddGameObject(troll4);
@@ -150,24 +150,24 @@ void MainScene::Update(float dt)
 {
     if (IM->GetKey(GLFW_KEY_1, DOWN))
     {
-        _camera->SetTarget(FindByTag("troll2"));
-        _camera->SetPositionFromTarget(glm::vec3(0.0f, 2.0f, 3.0f));
-        _camera->SetMode(CameraMode::STATIC);
+        camera->SetTarget(FindByTag("troll2"));
+        camera->SetPositionFromTarget(glm::vec3(0.0f, 2.0f, 3.0f));
+        camera->SetMode(CameraMode::STATIC);
     }
 
     if (IM->GetKey(GLFW_KEY_2, DOWN))
     {
-        _camera->SetTarget(FindByTag("troll3"));
-        _camera->SetPositionFromTarget(glm::vec3(0.0f, 1.0f, 0.7f));
-        _camera->SetMode(CameraMode::STATIC);
+        camera->SetTarget(FindByTag("troll3"));
+        camera->SetPositionFromTarget(glm::vec3(0.0f, 1.0f, 0.7f));
+        camera->SetMode(CameraMode::STATIC);
 
     }
 
     if (IM->GetKey(GLFW_KEY_3, DOWN))
     {
-        _camera->SetTarget(FindByTag("troll4"));
-        _camera->SetPositionFromTarget(glm::vec3(0.0f, 0.5f, 5.0f));
-        _camera->SetMode(CameraMode::DOLLYZOOM);
+        camera->SetTarget(FindByTag("troll4"));
+        camera->SetPositionFromTarget(glm::vec3(0.0f, 1.5f, 5.0f));
+        camera->SetMode(CameraMode::DOLLYZOOM);
     }
 
     Scene::Update(dt);
