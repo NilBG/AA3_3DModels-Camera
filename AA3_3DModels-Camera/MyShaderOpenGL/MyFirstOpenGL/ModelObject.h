@@ -1,6 +1,10 @@
 #pragma once
 #include "GameObject.h"
 #include "Model.h"
+#include "RenderManager.h"
+#include <stb_image.h>
+#include <gtc/type_ptr.hpp>
+#include <iostream>
 #include <string>
 
 class ModelObject : public GameObject

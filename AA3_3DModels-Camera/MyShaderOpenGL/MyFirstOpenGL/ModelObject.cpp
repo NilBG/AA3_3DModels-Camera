@@ -1,17 +1,14 @@
 #include "ModelObject.h"
-#include "RenderManager.h"
-#include <stb_image.h>
-#include <gtc/type_ptr.hpp>
-#include <iostream>
+
 
 ModelObject::ModelObject(const std::string& modelPath, const std::string& texturePath)
 {
-	// Cargamos el modelo a partir del archivo OBJ
+	// Cargamos modelo
 	Model modelParaCargarOBJ = LoadOBJModel(modelPath);
 	//Lo pongo asi porque es un puntero model
 	model = new Model(modelParaCargarOBJ); 
 
-	// Cargamos la textura con stb_image
+	// Cargamos la textura con stb image
 	int width, height, nrChannels;
 	unsigned char* data = stbi_load(texturePath.c_str(), &width, &height, &nrChannels, 0);
 	if (data)
@@ -57,12 +54,12 @@ void ModelObject::Update(float dt){}
 
 void ModelObject::Render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)
 {
-	if (!isVisible) return;
+	if (!_isVisible) return;
 
 	glUseProgram(shaderProgram);
 
 	// Transform 
-	glm::mat4 modelMat = transform->GetModelMatrix();
+	glm::mat4 modelMat = _transform->GetModelMatrix();
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMat));
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "viewMatrix"), 1, GL_FALSE, glm::value_ptr(viewMatrix));
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projectionMatrix"), 1, GL_FALSE, glm::value_ptr(projectionMatrix));

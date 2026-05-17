@@ -20,6 +20,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="ModelObject.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -27,22 +28,24 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Ortoedro.cpp" />
     <ClCompile Include="Primitive.cpp" />
-    <ClCompile Include="Pyramid.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Stb.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="glew32.dll" />
     <None Include="MyFirstFragmentShader.glsl" />
     <None Include="MyFirstGeometryShader.glsl" />
     <None Include="MyFirstVertexShader.glsl" />
     <None Include="packages.config" />
     <None Include="PyramidFragmentShader.glsl" />
+    <None Include="TextureFragmentShader.glsl" />
+    <None Include="TextureVertexShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MainScene.h" />
     <ClInclude Include="ModelObject.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Camera.h" />
@@ -50,9 +53,9 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Ortoedro.h" />
     <ClInclude Include="Primitive.h" />
-    <ClInclude Include="Pyramid.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="RenderManager.h" />
@@ -143,7 +146,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLM\include;$(SolutionDir)Dependencies\GLFW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLM\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\STB\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
