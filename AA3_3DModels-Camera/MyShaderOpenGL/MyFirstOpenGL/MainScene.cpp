@@ -119,69 +119,21 @@ void MainScene::OnEnter()
     nube2->GetTransform()->rotation = glm::vec3(90.0f, 45.0f, 0.0f);
     nube2->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
     AddGameObject(nube2);
-
+    
     ModelObject* nube3 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube3->GetTransform()->position = glm::vec3(-2.0f, 1.8f, -6.0f);
-    nube3->GetTransform()->scale = glm::vec3(0.35f);
-    nube3->GetTransform()->rotation = glm::vec3(90.0f, 90.0f, 0.0f);
+    nube3->GetTransform()->position = glm::vec3(4.0f, 1.3f, -1.5f);
+    nube3->GetTransform()->scale = glm::vec3(0.28f);
+    nube3->GetTransform()->rotation = glm::vec3(90.0f, 30.0f, 15.0f);
     nube3->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
     AddGameObject(nube3);
-
+    
     ModelObject* nube4 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube4->GetTransform()->position = glm::vec3(1.5f, 2.2f, -8.0f);
-    nube4->GetTransform()->scale = glm::vec3(0.25f);
-    nube4->GetTransform()->rotation = glm::vec3(90.0f, 150.0f, 0.0f);
+    nube4->GetTransform()->position = glm::vec3(-3.5f, 1.4f, -1.0f);
+    nube4->GetTransform()->scale = glm::vec3(0.20f);
+    nube4->GetTransform()->rotation = glm::vec3(90.0f, 55.0f, 30.0f);
     nube4->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
     AddGameObject(nube4);
 
-    ModelObject* nube5 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube5->GetTransform()->position = glm::vec3(4.0f, 1.3f, -1.5f);
-    nube5->GetTransform()->scale = glm::vec3(0.28f);
-    nube5->GetTransform()->rotation = glm::vec3(90.0f, 30.0f, 15.0f);
-    nube5->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
-    AddGameObject(nube5);
-
-    ModelObject* nube6 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube6->GetTransform()->position = glm::vec3(-4.5f, 1.6f, -5.0f);
-    nube6->GetTransform()->scale = glm::vec3(0.32f);
-    nube6->GetTransform()->rotation = glm::vec3(90.0f, 200.0f, 10.0f);
-    nube6->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
-    AddGameObject(nube6);
-
-    ModelObject* nube7 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube7->GetTransform()->position = glm::vec3(3.0f, 2.0f, -7.0f);
-    nube7->GetTransform()->scale = glm::vec3(0.22f);
-    nube7->GetTransform()->rotation = glm::vec3(90.0f, 260.0f, 25.0f);
-    nube7->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
-    AddGameObject(nube7);
-
-    ModelObject* nube8 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube8->GetTransform()->position = glm::vec3(-1.5f, 1.8f, -10.0f);
-    nube8->GetTransform()->scale = glm::vec3(0.38f);
-    nube8->GetTransform()->rotation = glm::vec3(90.0f, 120.0f, 5.0f);
-    nube8->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
-    AddGameObject(nube8);
-
-    ModelObject* nube9 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube9->GetTransform()->position = glm::vec3(5.0f, 2.3f, -9.0f);
-    nube9->GetTransform()->scale = glm::vec3(0.25f);
-    nube9->GetTransform()->rotation = glm::vec3(90.0f, 330.0f, 20.0f);
-    nube9->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
-    AddGameObject(nube9);
-
-    ModelObject* nube10 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube10->GetTransform()->position = glm::vec3(-3.5f, 1.4f, -1.0f);
-    nube10->GetTransform()->scale = glm::vec3(0.20f);
-    nube10->GetTransform()->rotation = glm::vec3(90.0f, 55.0f, 30.0f);
-    nube10->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
-    AddGameObject(nube10);
-
-    ModelObject* nube11 = new ModelObject("../Assets/Modelos/rock.obj", "../Assets/Texturas/rock.png");
-    nube11->GetTransform()->position = glm::vec3(2.5f, 1.7f, -12.0f);
-    nube11->GetTransform()->scale = glm::vec3(0.30f);
-    nube11->GetTransform()->rotation = glm::vec3(90.0f, 170.0f, 12.0f);
-    nube11->SetTintColor(glm::vec4(3.0f, 3.0f, 3.0f, 1.0f));
-    AddGameObject(nube11);
 
     //Suelo
     Cube* suelo = new Cube(
