@@ -44,9 +44,7 @@ void main()
 		RM->ClearScreen();
 
 		// El SceneManager renderiza
-		if (SM.GetCurrentScene()) {
-			SM.GetCurrentScene()->Render();
-		}
+		if (SM.GetCurrentScene()) { SM.GetCurrentScene()->Render(); }
 
 		RM->RenderScreen();
 	}

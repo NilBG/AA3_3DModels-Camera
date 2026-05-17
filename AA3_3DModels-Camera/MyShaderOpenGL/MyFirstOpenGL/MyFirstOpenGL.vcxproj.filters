@@ -30,9 +30,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
-    <ClCompile Include="Primitive.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -66,15 +63,15 @@
     <ClCompile Include="MainScene.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="MyFirstVertexShader.glsl">
       <Filter>Shader\Vertex Shader</Filter>
     </None>
     <None Include="packages.config" />
-    <None Include="MyFirstGeometryShader.glsl">
-      <Filter>Shader\Geometry Shader</Filter>
-    </None>
     <None Include="MyFirstFragmentShader.glsl">
       <Filter>Shader\Fragment Shader</Filter>
     </None>
@@ -88,11 +85,11 @@
     <None Include="TextureVertexShader.glsl">
       <Filter>Shader\Vertex Shader</Filter>
     </None>
+    <None Include="MyFirstGeometryShader.glsl">
+      <Filter>Shader\Geometry Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Primitive.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

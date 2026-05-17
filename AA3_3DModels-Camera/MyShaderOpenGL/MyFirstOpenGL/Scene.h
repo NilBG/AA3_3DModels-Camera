@@ -10,11 +10,9 @@
 class Scene {
 protected:
 
-	Camera* _camera = nullptr;
+	Camera* camera = nullptr;
 
-	std::vector<GameObject*> _objects;
-	
-	std::vector<GameObject*> _ui;
+	std::vector<GameObject*> objects;
 
 public:
 	Scene() = default;
@@ -26,36 +24,31 @@ public:
 	
 	virtual void OnExit() {
 
-		delete _camera;
-		_camera = nullptr;
+		delete camera;
+		camera = nullptr;
 
 		// Destruimos todos los objetos de la escena
-		for (GameObject* o : _objects) {
+		for (GameObject* o : objects) {
 			delete o;
 		}
-		_objects.clear();
-
-		for (GameObject* o : _ui) {
-			delete o;
-		}
-		_ui.clear();
+		objects.clear();
 	}
 
 	virtual void Update(float dt) {
 		// Control de destruccion de objetos
-		for (int i = _objects.size() - 1; i >= 0; i--) {
-			if (_objects[i]->_isPendingDestroy) {
-				delete _objects[i];
-				_objects.erase(_objects.begin() + i);
+		for (short i = objects.size() - 1; i >= 0; i--) {
+			if (objects[i]->isPendingDestroy) {
+				delete objects[i];
+				objects.erase(objects.begin() + i);
 			}
 		}
 
 		//Actualizar la camara
-		_camera->Update(dt);
+		camera->Update(dt);
 
 		// Actualizamos todos los objetos
-		for (GameObject* o : _objects) {
-			if (o != nullptr && o->_isVisible) {
+		for (GameObject* o : objects) {
+			if (o != nullptr && o->isVisible) {
 				o->Update(dt);
 			}
 		}
@@ -64,12 +57,12 @@ public:
 	virtual void Render() {
 
 		// Generamos matrices de cámara
-		glm::mat4 viewMatrix = _camera->GetViewMatrix();
-		glm::mat4 projectionMatrix = _camera->GetProjectionMatrix((float)WINDOW_WIDTH / (float)WINDOW_HEIGHT);
+		glm::mat4 viewMatrix = camera->GetViewMatrix();
+		glm::mat4 projectionMatrix = camera->GetProjectionMatrix((float)WINDOW_WIDTH / (float)WINDOW_HEIGHT);
 
 		// El render de la escena simplemente le pide a cada objeto que se dibuje
-		for (GameObject* o : _objects) {
-			if (o != nullptr && o->_isVisible) {
+		for (GameObject* o : objects) {
+			if (o != nullptr && o->isVisible) {
 				o->Render(viewMatrix, projectionMatrix);
 			}
 		}
@@ -77,9 +70,9 @@ public:
 
 	GameObject* FindByTag(const std::string& tag)
 	{
-		for (GameObject* o : _objects)
+		for (GameObject* o : objects)
 		{
-			if (o->_tag == tag)
+			if (o->tag == tag)
 				return o;
 		}
 		return nullptr;
@@ -87,8 +80,8 @@ public:
 
 	// Metodo para añadir objetos a la escena
 	void AddGameObject(GameObject* obj) {
-		if (obj != nullptr) _objects.push_back(obj);
+		if (obj != nullptr) objects.push_back(obj);
 	}
 
-	std::vector<GameObject*>& GetObjects() { return _objects; }
+	std::vector<GameObject*>& GetObjects() { return objects; }
 };

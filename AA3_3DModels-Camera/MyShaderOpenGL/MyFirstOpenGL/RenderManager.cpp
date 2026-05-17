@@ -4,16 +4,13 @@
 
 RenderManager::~RenderManager()
 {
-	for (auto const& [path, shader] : _cacheShaders)
+	for (auto const& [path, shader] : cacheShaders)
 	{
 		glDeleteShader(shader);
 	}
 }
 
-void RenderManager::ResizeWindow(GLFWwindow* window, int iFrameBufferWidth, int iFrameBufferHeight)
-{
-	glViewport(0, 0, iFrameBufferWidth, iFrameBufferHeight);
-}
+void RenderManager::ResizeWindow(GLFWwindow* window, int iFrameBufferWidth, int iFrameBufferHeight) { glViewport(0, 0, iFrameBufferWidth, iFrameBufferHeight); }
 
 void RenderManager::InitGLFW()
 {
@@ -25,11 +22,11 @@ void RenderManager::InitGLFW()
 
 void RenderManager::CreateWindow()
 {
-	_window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);
-	if (!_window) throw "Error: GLFW Window creation failed";
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);
+	if (!window) throw "Error: GLFW Window creation failed";
 
-	glfwSetFramebufferSizeCallback(_window, ResizeWindow);
-	glfwMakeContextCurrent(_window);
+	glfwSetFramebufferSizeCallback(window, ResizeWindow);
+	glfwMakeContextCurrent(window);
 }
 
 void RenderManager::Init()
@@ -57,32 +54,18 @@ void RenderManager::Init()
 
 void RenderManager::Release()
 {
-	if (_window)
+	if (window)
 	{
-		glfwDestroyWindow(_window);
-		_window = nullptr;
+		glfwDestroyWindow(window);
+		window = nullptr;
 	}
 }
 
-void RenderManager::ClearScreen()
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-}
+void RenderManager::ClearScreen() { glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT); }
 
-void RenderManager::RenderScreen()
-{
-	glfwSwapBuffers(_window);
-}
+void RenderManager::RenderScreen() { glfwSwapBuffers(window); }
 
-void RenderManager::ToggleWireframe() { _isWireframe = !_isWireframe; }
-
-void RenderManager::Update(float dt)
-{
-	if (_isWireframe)
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	else
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-}
+void RenderManager::Update(float dt) {}
 
 std::string RenderManager::Load_File(const std::string& filePath)
 {
@@ -93,7 +76,7 @@ std::string RenderManager::Load_File(const std::string& filePath)
 
 GLuint RenderManager::LoadVertexShader(const std::string& filePath)
 {
-	if (_cacheShaders.count(filePath)) return _cacheShaders[filePath];
+	if (cacheShaders.count(filePath)) return cacheShaders[filePath];
 
 	std::string source = Load_File(filePath);
 	if (source.empty()) return 0;
@@ -103,13 +86,13 @@ GLuint RenderManager::LoadVertexShader(const std::string& filePath)
 	glShaderSource(shader, 1, &src, nullptr);
 	glCompileShader(shader);
 
-	_cacheShaders[filePath] = shader;
+	cacheShaders[filePath] = shader;
 	return shader;
 }
 
 GLuint RenderManager::LoadFragmentShader(const std::string& filePath)
 {
-	if (_cacheShaders.count(filePath)) return _cacheShaders[filePath];
+	if (cacheShaders.count(filePath)) return cacheShaders[filePath];
 
 	std::string source = Load_File(filePath);
 	if (source.empty()) return 0;
@@ -119,13 +102,13 @@ GLuint RenderManager::LoadFragmentShader(const std::string& filePath)
 	glShaderSource(shader, 1, &src, nullptr);
 	glCompileShader(shader);
 
-	_cacheShaders[filePath] = shader;
+	cacheShaders[filePath] = shader;
 	return shader;
 }
 
 GLuint RenderManager::LoadGeometryShader(const std::string& filePath)
 {
-	if (_cacheShaders.count(filePath)) return _cacheShaders[filePath];
+	if (cacheShaders.count(filePath)) return cacheShaders[filePath];
 
 	std::string source = Load_File(filePath);
 	if (source.empty()) return 0;
@@ -135,7 +118,7 @@ GLuint RenderManager::LoadGeometryShader(const std::string& filePath)
 	glShaderSource(shader, 1, &src, nullptr);
 	glCompileShader(shader);
 
-	_cacheShaders[filePath] = shader;
+	cacheShaders[filePath] = shader;
 	return shader;
 }
 

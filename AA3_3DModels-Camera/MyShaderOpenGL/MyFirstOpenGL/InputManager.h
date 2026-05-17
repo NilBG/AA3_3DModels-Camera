@@ -16,18 +16,12 @@ public:
 		return &instance;
 	}
 
-	void Init(GLFWwindow* window)
-	{
-		_window = window;
-
-		glfwSetKeyCallback(_window, KeyBoardCallBack);
-		glfwSetMouseButtonCallback(_window, MouseCallBack);
-	}
+	void Init(GLFWwindow* newWindow);
 
 	bool Listen();
 
-	double GetMouseX() const { return _mouseX; }
-	double GetMouseY() const { return _mouseY; }
+	double GetMouseX() const;
+	double GetMouseY() const;
 	bool GetKey(GLuint input, KeyState inputValue);
 
 private:
@@ -36,14 +30,14 @@ private:
 	InputManager& operator=(const InputManager&) = delete;
 	~InputManager() {}
 
-	static void KeyBoardCallBack(GLFWwindow* window, int key, int scancode, int action, int mods);
-	static void MouseCallBack(GLFWwindow* window, int button, int action, int mods);
+	static void KeyBoardCallBack(GLFWwindow* newWindow, int key, int scancode, int action, int mods);
+	static void MouseCallBack(GLFWwindow* newWindow, int button, int action, int mods);
 
-	GLFWwindow* _window = nullptr;
+	GLFWwindow* window = nullptr;
 
 	//Son double porque glfwGetCursorPos() me obliga a pasar doubles, no hago cast por perdida de datos
-	double _mouseX = 0;
-	double _mouseY = 0;
+	double mouseX = 0;
+	double mouseY = 0;
 
-	std::unordered_map<GLuint, KeyState> _keyReference;
+	std::unordered_map<GLuint, KeyState> keyReference;
 };
