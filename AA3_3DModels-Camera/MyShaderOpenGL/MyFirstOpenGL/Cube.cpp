@@ -6,8 +6,8 @@
 Cube::Cube(glm::vec3 position, glm::vec3 scale)
 {
     RenderManager::ShaderProgram shaders;
-    shaders.vertexShader = RM->LoadVertexShader("MyFirstVertexShader.glsl");
-    shaders.fragmentShader = RM->LoadFragmentShader("MyFirstFragmentShader.glsl");
+    shaders.vertexShader = RM->LoadVertexShader("PrimitiveVertexShader.glsl");
+    shaders.fragmentShader = RM->LoadFragmentShader("PrimitiveFragmentShader.glsl");
     shaderProgram = RM->CreateProgram(shaders);
 
     float vertices[] = {

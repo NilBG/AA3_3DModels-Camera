@@ -27,7 +27,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
@@ -71,11 +71,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MyFirstVertexShader.glsl">
+    <None Include="PrimitiveVertexShader.glsl">
       <Filter>Shader\Vertex Shader</Filter>
     </None>
     <None Include="packages.config" />
-    <None Include="MyFirstFragmentShader.glsl">
+    <None Include="PrimitiveFragmentShader.glsl">
       <Filter>Shader\Fragment Shader</Filter>
     </None>
     <None Include="glew32.dll" />
@@ -85,7 +85,7 @@
     <None Include="TextureVertexShader.glsl">
       <Filter>Shader\Vertex Shader</Filter>
     </None>
-    <None Include="MyFirstGeometryShader.glsl">
+    <None Include="PrimitiveGeometryShader.glsl">
       <Filter>Shader\Geometry Shader</Filter>
     </None>
   </ItemGroup>
