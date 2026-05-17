@@ -4,7 +4,7 @@ Camera::Camera()
 	: GameObject()
 {
 	mode = CameraMode::ORB;
-	transform->position = glm::vec3(0.0f, orbitHeight, 5.0f);
+	transform->position = glm::vec3(0.0f, orbitHeight, 0.0f);
 	target = defaultTarget;
 }
 
@@ -28,10 +28,7 @@ void Camera::Update(float dt)
 
 		//Clampeo la duración para simplemente poner si es más grande que 1
 		float _clamp = glm::clamp(dollyZoomTimer / dollyZoomDuration, 0.0f, 1.0f);
-		fFov = 10.f + (60.f - 10.f) * _clamp;
-
-		const float _initZ = 5.0f;
-		const float _endZ = 1.0f;
+		fFov = fFovDollyZoomStart + (fFovDollyZoomEnd - fFovDollyZoomStart) * _clamp;
 
 		transform->position = dollyZoomPos + (target - dollyZoomPos) * _clamp;
 
@@ -60,16 +57,16 @@ void Camera::SetMode(CameraMode newMode)
 	switch (mode)
 	{
 	case CameraMode::ORB:
-		fFov = 45.f;
+		fFov = fFovOrbit;
 		transform->position.y = orbitHeight;
 		break;
 
 	case CameraMode::STATIC:
-		fFov = 60.f;
+		fFov = fFovStatic;
 		break;
 
 	case CameraMode::DOLLYZOOM:
-		fFov = 10.f;
+		fFov = fFovDollyZoomStart;
 		dollyZoomTimer = 0.0f;
 		dollyZoomPos = transform->position;
 		break;

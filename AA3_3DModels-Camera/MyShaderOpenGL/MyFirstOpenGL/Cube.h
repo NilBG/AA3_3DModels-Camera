@@ -12,5 +12,5 @@ public:
 
 private:
     GLuint shaderProgram = 0;
-    const short vertexCount = 36;
+    const int vertexCount = 36;
 };

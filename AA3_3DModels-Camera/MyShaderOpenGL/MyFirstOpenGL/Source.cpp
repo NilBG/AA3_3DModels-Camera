@@ -30,15 +30,20 @@ void main()
 	SM.AddScene("Main", new MainScene());
 	SM.InitFirstScene("Main");
 
+	bool isRunning = true;
+
 	// Generamos el game loop
-	while (!IM->Listen()) {
+	while (isRunning) {
+
+
+		IM->Listen();
 
 		TIME.Update();
 			
 		// Actualizamos el SceneManager
 		SM.UpdateCurrentScene(TIME.GetDeltaTime());
 
-		RM->Update(TIME.GetDeltaTime());
+		//RM->Update(TIME.GetDeltaTime());
 
 		// Dibujado
 		RM->ClearScreen();
@@ -47,6 +52,9 @@ void main()
 		if (SM.GetCurrentScene()) { SM.GetCurrentScene()->Render(); }
 
 		RM->RenderScreen();
+
+		if (glfwWindowShouldClose(RM->GetWindow()))
+			isRunning = false;
 	}
 
 	RM->Release();

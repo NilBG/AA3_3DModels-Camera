@@ -8,14 +8,7 @@
 class TimeManager
 {
 private:
-	TimeManager()
-	{
-		deltaTime = 0.0f;
-		elapsedTime = glfwGetTime();
-		previousElapsedTime = 0.0f;
-
-		frameTime = 1.0f / (float)FPS;
-	}
+	TimeManager();
 	~TimeManager() = default;
 
 	TimeManager(const TimeManager& t) = delete;

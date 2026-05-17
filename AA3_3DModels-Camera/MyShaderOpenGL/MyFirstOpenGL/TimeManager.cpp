@@ -1,5 +1,14 @@
 #include "TimeManager.h"
 
+TimeManager::TimeManager()
+{
+	deltaTime = 0.0f;
+	elapsedTime = glfwGetTime();
+	previousElapsedTime = 0.0f;
+
+	frameTime = 1.0f / (float)FPS;
+}
+
 float TimeManager::GetDeltaTime() { return deltaTime; }
 
 void TimeManager::SetTimeMultiplier(float m) { timeMultiplier = m; }

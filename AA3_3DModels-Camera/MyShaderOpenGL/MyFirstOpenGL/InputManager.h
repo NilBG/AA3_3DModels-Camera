@@ -18,7 +18,7 @@ public:
 
 	void Init(GLFWwindow* newWindow);
 
-	bool Listen();
+	void Listen();
 
 	double GetMouseX() const;
 	double GetMouseY() const;

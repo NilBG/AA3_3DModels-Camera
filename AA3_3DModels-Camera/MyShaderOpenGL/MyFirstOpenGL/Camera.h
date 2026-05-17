@@ -26,10 +26,18 @@ public:
 
 	//Orbit
 	const float orbitHeight = 3.0f;
+	const float fFovOrbit = 45.0f;
+
+	//Static
+	const float fFovStatic = 60.0f;
 
 	//dollyZoom
 	float dollyZoomTimer = 0.0f;
 	const float dollyZoomDuration = 3.0f;
+	const float fFovDollyZoom = 60.0f;
+	const float fFovDollyZoomStart = 10.0f;
+	const float fFovDollyZoomEnd = 60.0f;
+
 	glm::vec3 dollyZoomPos = glm::vec3(0.f);
 
 	Camera();

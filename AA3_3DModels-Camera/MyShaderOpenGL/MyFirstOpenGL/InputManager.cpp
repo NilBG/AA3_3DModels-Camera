@@ -9,7 +9,7 @@ void InputManager::Init(GLFWwindow* newWindow)
     glfwSetMouseButtonCallback(window, MouseCallBack);
 }
 
-bool InputManager::Listen()
+void InputManager::Listen()
 {
     for (std::unordered_map<GLuint, KeyState>::iterator it = keyReference.begin(); it != keyReference.end(); it++)
     {
@@ -22,8 +22,6 @@ bool InputManager::Listen()
     glfwGetCursorPos(window, &mouseX, &mouseY);
 
     glfwPollEvents();
-
-    return glfwWindowShouldClose(window);
 }
 
 double InputManager::GetMouseX() const { return mouseX; }

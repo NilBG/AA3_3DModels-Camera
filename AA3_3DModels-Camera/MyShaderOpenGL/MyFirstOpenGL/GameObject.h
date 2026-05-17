@@ -1,6 +1,7 @@
 #pragma once
 #include <glm.hpp>
 #include "Transform.h"
+#include <string>
 #include "MeshRenderer.h"
 
 class GameObject
