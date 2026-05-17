@@ -34,9 +34,8 @@ public:
     void Release();
     void ClearScreen();
     void RenderScreen();
-    void ToggleWireframe();
     void Update(float dt);
-    GLFWwindow* GetWindow() const { return _window; }
+    GLFWwindow* GetWindow() const { return window; }
 
     std::string Load_File(const std::string& filePath);
     GLuint LoadVertexShader(const std::string& filePath);
@@ -52,13 +51,12 @@ private:
 
     void InitGLFW();
     void CreateWindow();
-    static void ResizeWindow(GLFWwindow* window, int iFrameBufferWidth, int iFrameBufferHeight);
+    static void ResizeWindow(GLFWwindow* newWindow, int iFrameBufferWidth, int iFrameBufferHeight);
 
-    GLFWwindow* _window = nullptr;
-    const int OPENGL_MAJOR = 4;
-    const int OPENGL_MINOR = 4;
+    GLFWwindow* window = nullptr;
+    const short OPENGL_MAJOR = 4;
+    const short OPENGL_MINOR = 4;
     const char* WINDOW_TITLE = "My Engine";
 
-    std::unordered_map<std::string, GLuint> _cacheShaders;
-    bool _isWireframe = false;
+    std::unordered_map<std::string, GLuint> cacheShaders;
 };

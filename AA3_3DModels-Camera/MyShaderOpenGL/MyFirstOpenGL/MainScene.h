@@ -1,15 +1,12 @@
 #pragma once
 #include "Scene.h"
+#include "Camera.h"
 #include "Cube.h"
-#include "Ortoedro.h"
-#include "Pyramid.h"
+#include "ModelObject.h"
 
 class MainScene : public Scene {
 public:
-    void OnEnter() override {
-        // Inicializamos los objetos en la entrada de la escena
-        AddGameObject(new Cube());
-        AddGameObject(new Ortoedro());
-        AddGameObject(new Pyramid());
-    }
+    void OnEnter() override;
+
+    void Update(float dt) override;
 };
